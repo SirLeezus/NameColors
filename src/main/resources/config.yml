@@ -1,0 +1,40 @@
+# Supports color.{COLOR} - Disable this if you're using luckperms support
+permission-system: true
+# Color for OP players when using the permission system
+op-permission-system-color: RED
+# Supports prefixes and suffixes for luckperms
+luckperms-support: false
+# Support nickname coloring for EssentialsX
+essentials-color-support: false
+# Display health in hearts under player name
+display-health: false
+# Turns glow on for all users on join
+auto-glow: false
+# List each rank in luckperms with color, you only can use the Spigot API chat colors, make sure the prefix is set for the group in luckperms.
+luckperms-ranks:
+  default:
+    color: "BLUE"
+  survivor:
+    color: "DARK_GREEN"
+  adventurer:
+    color: "AQUA"
+  conqueror:
+    color: "GREEN"
+  enlightened:
+    color: "LIGHT_PURPLE"
+  legend:
+    color: "YELLOW"
+  prophet:
+    color: "DARK_AQUA"
+  flawless:
+    color: "GOLD"
+  builder:
+    color: "AQUA"
+  youtuber:
+    color: "RED"
+  mod:
+    color: "DARK_PURPLE"
+  admin:
+    color: "DARK_GREEN"
+  owner:
+    color: "RED"

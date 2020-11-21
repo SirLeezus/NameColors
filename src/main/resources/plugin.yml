@@ -1,0 +1,10 @@
+name: PlayerNameColors
+main: lee.code.namecolors.NameColors
+version: 1.0
+api-version: 1.13
+author: Lee
+softdepend: [LuckPerms, Essentials]
+commands:
+  namecolors:
+    description: Main command of plugin.
+    permission: color.command.use

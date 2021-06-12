@@ -14,8 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CommandManager implements CommandExecutor {
-
-    @Getter public final ArrayList<SubCommand> subCommands = new ArrayList<>();
+    @Getter private final ArrayList<SubCommand> subCommands = new ArrayList<>();
 
     public CommandManager() {
         subCommands.add(new Glow());
@@ -24,7 +23,6 @@ public class CommandManager implements CommandExecutor {
 
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
-
         NameColors plugin = NameColors.getPlugin();
 
         if (sender instanceof Player) {
@@ -59,7 +57,7 @@ public class CommandManager implements CommandExecutor {
             lines.add("&r");
             lines.add(Lang.MESSAGE_HELP_DIVIDER.getConfigValue(null));
 
-            for (String line : lines) p.sendMessage(plugin.getUtility().format(line));
+            for (String line : lines) p.sendMessage(plugin.getPU().format(line));
             return true;
 
         }

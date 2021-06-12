@@ -1,4 +1,4 @@
-name: PlayerNameColors
+name: NameColors
 main: lee.code.namecolors.NameColors
 version: 1.0
 api-version: 1.13
@@ -8,3 +8,4 @@ commands:
   namecolors:
     description: Main command of plugin.
     permission: color.command.use
+    aliases: [nc]

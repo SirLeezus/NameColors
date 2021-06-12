@@ -8,31 +8,17 @@ import java.util.HashMap;
 
 public class Data {
 
-    //get luck perm rank color
     private final HashMap<String, ChatColor> luckPermRankColor = new HashMap<>();
-
-    //essentials nickname support
     @Getter private Boolean essentialsColorSupport;
-
-    //luckperms support
     @Getter private Boolean luckPermsSupport;
-
-    //permission system support
     @Getter private Boolean permissionSystemSupport;
-
-    //health display support
     @Getter private Boolean heathDisplaySupport;
-
-    //health display support
     @Getter private Boolean autoGlow;
-
-    //OP color
     @Getter private ChatColor oPColor;
 
     private void setLuckPermRankColor(String rank, ChatColor color) {
         luckPermRankColor.put(rank, color);
     }
-
     public ChatColor getLuckPermRankColor(String rank) {
         return luckPermRankColor.getOrDefault(rank, ChatColor.BLUE);
     }
@@ -44,9 +30,16 @@ public class Data {
 
     private void loadLuckPermRankColors() {
         NameColors plugin = NameColors.getPlugin();
-        for (String key : plugin.getFile("config").getData().getConfigurationSection("luckperms-ranks").getKeys(false)) {
-            ConfigurationSection keySection = plugin.getFile("config").getData().getConfigurationSection("luckperms-ranks." + key);
-            setLuckPermRankColor(key, ChatColor.valueOf(keySection.getString("color").toUpperCase()));
+        ConfigurationSection config = plugin.getFile("config").getData().getConfigurationSection("luckperms-ranks");
+        if (config != null) {
+            for (String key : config.getKeys(false)) {
+                ConfigurationSection keySection = plugin.getFile("config").getData().getConfigurationSection("luckperms-ranks." + key);
+                if (keySection != null) {
+                    String sColor = keySection.getString("color");
+                    if (sColor != null) sColor = sColor.toUpperCase();
+                    setLuckPermRankColor(key, ChatColor.valueOf(sColor));
+                }
+            }
         }
     }
 

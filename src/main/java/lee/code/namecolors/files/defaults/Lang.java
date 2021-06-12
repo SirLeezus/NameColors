@@ -8,25 +8,15 @@ import org.bukkit.configuration.file.FileConfiguration;
 
 @AllArgsConstructor
 public enum Lang {
-    //plugin prefix
     PREFIX("PREFIX", "&a&lNameColors &e➔ &r"),
-    //Error no permission
     ERROR_NO_PERMISSION("ERROR_NO_PERMISSION", "&cYou sadly do not have permission for this."),
-    //Message Help info divider
     MESSAGE_HELP_DIVIDER("MESSAGE_HELP_DIVIDER", "&e▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬"),
-    //Message Help info title
     MESSAGE_HELP_TITLE("MESSAGE_HELP_TITLE", "      &6-== &a&l&nPlayerNameColors Help&r &6==-"),
-    //Message Help info sub command
     MESSAGE_HELP_SUB_COMMAND("MESSAGE_HELP_SUB_COMMAND", "&3{0}&b. &e{1} &c| &7{2}"),
-    //Error not a console command
     ERROR_NOT_A_CONSOLE_COMMAND("ERROR_NOT_A_CONSOLE_COMMAND", "&cThis is not a console command."),
-    //Message command glow turned off
     MESSAGE_COMMAND_GLOW_OFF("MESSAGE_COMMAND_GLOW_OFF", "&6You have toggled your glow &c&lOFF&6."),
-    //Message command glow turned on
     MESSAGE_COMMAND_GLOW_ON("MESSAGE_COMMAND_GLOW_ON", "&6You have toggled your glow &2&lON&6."),
-    //Message plugin has reloaded
     MESSAGE_RELOAD("MESSAGE_RELOAD", "&aThe plugin has been reloaded."),
-    //Message error glow version
     MESSAGE_ERROR_GLOW_VERSION("MESSAGE_ERROR_GLOW_VERSION", "&cSadly glow is not supported on your server version."),
     ;
 
@@ -41,14 +31,10 @@ public enum Lang {
     public String getConfigValue(final String[] args) {
         String fileValue = file.getString(this.path, this.def);
         if (fileValue == null) fileValue = "";
-
         String value = ChatColor.translateAlternateColorCodes('&', fileValue);
-
         if (args == null) return value;
         else if (args.length == 0) return value;
-
         for (int i = 0; i < args.length; i++) value = value.replace("{" + i + "}", args[i]);
-
         return value;
     }
 }

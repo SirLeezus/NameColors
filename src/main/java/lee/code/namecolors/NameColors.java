@@ -12,13 +12,13 @@ import org.bukkit.plugin.java.JavaPlugin;
 public class NameColors extends JavaPlugin {
 
     @Getter private FileManager fileManager;
-    @Getter private Utility utility;
+    @Getter private PluginUtility pU;
     @Getter private Data data;
 
     public void onEnable() {
 
         this.fileManager = new FileManager();
-        this.utility = new Utility();
+        this.pU = new PluginUtility();
         this.data = new Data();
 
         //load config
@@ -32,7 +32,7 @@ public class NameColors extends JavaPlugin {
         data.loadData();
 
         //register scoreboard
-        utility.registerScoreboard();
+        pU.registerScoreboard();
 
         //Commands
         getCommand("namecolors").setExecutor(new CommandManager());

@@ -20,7 +20,7 @@ public class Glow extends SubCommand {
 
     @Override
     public String getSyntax() {
-        return "/namecolors glow &f<true/false> ";
+        return "/namecolors glow &f<on/off> ";
     }
 
     @Override
@@ -32,28 +32,25 @@ public class Glow extends SubCommand {
     public void perform(Player player, String[] args) {
         NameColors plugin = NameColors.getPlugin();
 
-        if (!plugin.getUtility().supports(9)) {
-            player.sendMessage(Lang.PREFIX.getConfigValue(null) + Lang.MESSAGE_ERROR_GLOW_VERSION.getConfigValue(null));
-            return;
-        }
-
-        if (args.length == 1) {
-            if (player.isGlowing()) {
-                player.setGlowing(false);
-                player.sendMessage(Lang.PREFIX.getConfigValue(null) +Lang.MESSAGE_COMMAND_GLOW_OFF.getConfigValue(null));
-            } else if (!player.isGlowing()) {
-                player.setGlowing(true);
-                player.sendMessage(Lang.PREFIX.getConfigValue(null) + Lang.MESSAGE_COMMAND_GLOW_ON.getConfigValue(null));
+        if (plugin.getPU().supports(9)) {
+            if (args.length == 1) {
+                if (player.isGlowing()) {
+                    player.setGlowing(false);
+                    player.sendMessage(Lang.PREFIX.getConfigValue(null) +Lang.MESSAGE_COMMAND_GLOW_OFF.getConfigValue(null));
+                } else if (!player.isGlowing()) {
+                    player.setGlowing(true);
+                    player.sendMessage(Lang.PREFIX.getConfigValue(null) + Lang.MESSAGE_COMMAND_GLOW_ON.getConfigValue(null));
+                }
+            } else if (args.length > 1) {
+                if (args[1].equals("on")) {
+                    if (!player.isGlowing()) player.setGlowing(true);
+                    player.sendMessage(Lang.PREFIX.getConfigValue(null) + Lang.MESSAGE_COMMAND_GLOW_ON.getConfigValue(null));
+                } else if (args[1].equals("off")) {
+                    if (player.isGlowing()) player.setGlowing(false);
+                    player.sendMessage(Lang.PREFIX.getConfigValue(null) +Lang.MESSAGE_COMMAND_GLOW_OFF.getConfigValue(null));
+                }
             }
-        } else if (args.length > 1) {
-            if (args[1].toLowerCase().equals("on")) {
-                if (!player.isGlowing()) player.setGlowing(true);
-                player.sendMessage(Lang.PREFIX.getConfigValue(null) + Lang.MESSAGE_COMMAND_GLOW_ON.getConfigValue(null));
-            } else if (args[1].toLowerCase().equals("off")) {
-                if (player.isGlowing()) player.setGlowing(false);
-                player.sendMessage(Lang.PREFIX.getConfigValue(null) +Lang.MESSAGE_COMMAND_GLOW_OFF.getConfigValue(null));
-            }
-        }
+        } else player.sendMessage(Lang.PREFIX.getConfigValue(null) + Lang.MESSAGE_ERROR_GLOW_VERSION.getConfigValue(null));
     }
 
     @Override

@@ -14,15 +14,11 @@ public class JoinListener implements Listener {
         NameColors plugin = NameColors.getPlugin();
         Player player = e.getPlayer();
         if (plugin.getData().getAutoGlow()) {
-
-            if (!plugin.getUtility().supports(9)) {
-                player.sendMessage(Lang.PREFIX.getConfigValue(null) + Lang.MESSAGE_ERROR_GLOW_VERSION.getConfigValue(null));
-                return;
-            }
-            if (!player.isGlowing()) player.setGlowing(true);
+            if (plugin.getPU().supports(9)) {
+                if (!player.isGlowing()) player.setGlowing(true);
+            } else player.sendMessage(Lang.PREFIX.getConfigValue(null) + Lang.MESSAGE_ERROR_GLOW_VERSION.getConfigValue(null));
         }
-        plugin.getUtility().registerNameTag(player);
-        plugin.getUtility().getColorBoard().getTeam(player.getName()).addEntry(player.getName());
-        plugin.getUtility().setDisplayNameColorEssentials(e.getPlayer());
+        plugin.getPU().registerNameTag(player);
+        plugin.getPU().setDisplayNameColorEssentials(e.getPlayer());
     }
 }

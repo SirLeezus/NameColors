@@ -10,6 +10,8 @@ import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 import org.bukkit.scoreboard.*;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 import java.util.logging.Level;
 
@@ -120,7 +122,15 @@ public class PluginUtility {
         }
     }
 
-    //XSeries version checker
+    public List<String> getOnlinePlayers() {
+        List<String> players = new ArrayList<>();
+        for (Player player : Bukkit.getOnlinePlayers()) {
+            players.add(player.getName());
+        }
+        return players;
+    }
+
+    //XSeries version checker - credit to him
     private final int VERSION = Integer.parseInt(getMajorVersion(Bukkit.getVersion()).substring(2));
 
     public boolean supports(int version) {

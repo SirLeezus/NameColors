@@ -37,8 +37,8 @@ public class FileManager {
         File[] files = folder.listFiles();
         if (files == null) return;
 
-        for (File file : files)
-            if (file.getName().endsWith(".yml"))
+        for (File file : files) {
+            if (file.getName().endsWith(".yml")) {
                 try {
                     FileInputStream inputStream = new FileInputStream(file);
                     String name = file.getName().replace(".yml", "");
@@ -46,5 +46,7 @@ public class FileManager {
                 } catch (FileNotFoundException ignored) {
                     plugin.getLogger().log(Level.SEVERE, "Failed to load configuration file: " + file.getName());
                 }
+            }
+        }
     }
 }

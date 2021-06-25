@@ -44,7 +44,7 @@ public class CustomFile {
     //creates file
     private void createFile() {
         if (!path.exists()) {
-            path.mkdirs();
+            boolean created = path.mkdirs();
         }
         if (defaults != null)
             try {

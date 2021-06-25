@@ -47,7 +47,7 @@ public class Glow extends SubCommand {
                     player.sendMessage(Lang.PREFIX.getConfigValue(null) + Lang.MESSAGE_COMMAND_GLOW_ON.getConfigValue(null));
                 } else if (args[1].equals("off")) {
                     if (player.isGlowing()) player.setGlowing(false);
-                    player.sendMessage(Lang.PREFIX.getConfigValue(null) +Lang.MESSAGE_COMMAND_GLOW_OFF.getConfigValue(null));
+                    player.sendMessage(Lang.PREFIX.getConfigValue(null) + Lang.MESSAGE_COMMAND_GLOW_OFF.getConfigValue(null));
                 }
             }
         } else player.sendMessage(Lang.PREFIX.getConfigValue(null) + Lang.MESSAGE_ERROR_GLOW_VERSION.getConfigValue(null));

@@ -8,7 +8,7 @@ import org.bukkit.configuration.file.FileConfiguration;
 
 @AllArgsConstructor
 public enum Lang {
-    PREFIX("PREFIX", "&a&lNameColors &e➔ &r"),
+    PREFIX("PREFIX", "&2&lNameColors &e➔ &r"),
     ERROR_NO_PERMISSION("ERROR_NO_PERMISSION", "&cYou sadly do not have permission for this."),
     MESSAGE_HELP_DIVIDER("MESSAGE_HELP_DIVIDER", "&e▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬"),
     MESSAGE_HELP_TITLE("MESSAGE_HELP_TITLE", "      &6-== &a&l&nPlayerNameColors Help&r &6==-"),
@@ -17,6 +17,8 @@ public enum Lang {
     MESSAGE_COMMAND_GLOW_OFF("MESSAGE_COMMAND_GLOW_OFF", "&6You have toggled your glow &c&lOFF&6."),
     MESSAGE_COMMAND_GLOW_ON("MESSAGE_COMMAND_GLOW_ON", "&6You have toggled your glow &2&lON&6."),
     MESSAGE_RELOAD("MESSAGE_RELOAD", "&aThe plugin has been reloaded."),
+    MESSAGE_UPDATE("MESSAGE_UPDATE", "&aColor update successful for the player &6{0}&a!"),
+    ERROR_MESSAGE_UPDATE("ERROR_MESSAGE_UPDATE", "&cThe player &6{0} &cis not online."),
     MESSAGE_ERROR_GLOW_VERSION("MESSAGE_ERROR_GLOW_VERSION", "&cSadly glow is not supported on your server version."),
     ;
 
